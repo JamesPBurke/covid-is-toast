@@ -32,4 +32,11 @@ let covid = sprites.create(img`
     .............777777.............
     ..............7777..............
     `, SpriteKind.Player)
-let one_virus_16_16 = 0
+scene.setBackgroundColor(3)
+tiles.setTilemap(tilemap`level1`)
+controller.moveSprite(covid)
+scene.cameraFollowSprite(covid)
+let blinkos = tiles.getTilesByType(assets.tile`myTile2`)
+game.onUpdateInterval(1000, function () {
+    tiles.placeOnRandomTile(covid, assets.tile`myTile0`)
+})
